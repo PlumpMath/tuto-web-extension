@@ -52,6 +52,12 @@
 		}
 	],
 
+	"background":
+	{
+		"scripts": [ "js/bg.js" ],
+		"persistent": false
+	},
+
 	"permissions":
 	[
 		"tabs"
