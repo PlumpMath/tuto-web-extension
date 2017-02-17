@@ -7,3 +7,35 @@
 * Date : 	16/02/2017
 **/
 
+
+body
+{
+	text-align: center;
+}
+
+button
+{
+	width: 90px;
+	border: none;
+	border-radius: 25px;
+	padding: 25px;
+	margin: 5px;
+	font-size: 1.3em;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	color: #fff;
+	letter-spacing: 2px;
+	outline-style:none;
+}
+
+button.inactive
+{
+	box-shadow: 2px 2px 4px #999;
+	background: #9FCECE;
+}
+
+button.active
+{
+	box-shadow: 0 0 2px #666;
+	background: #2B9595;
+}
