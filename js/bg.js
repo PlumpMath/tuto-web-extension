@@ -15,6 +15,18 @@ var isExtensionActive = false;
 // Si le module est actif, le bouton doit être à ON
 var btPopup = null;
 
+// ... ou dès la mise à jour de l'onglet
+// (la création d'un onglet compte aussi pour une mise à jour)
+chrome.tabs.onUpdated.addListener(
+	function()
+	{
+		if(isExtensionActive)
+		{
+			dwaps.action();
+		}
+	}
+);
+
 
 // Découverte de chrome.tabs.query...
 var dwaps = {
