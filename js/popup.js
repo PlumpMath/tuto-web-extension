@@ -50,6 +50,7 @@ document
 
 					// On indique au background
 					// qu'il y a eu un clic sur le bouton
+					// De cette façon, il pourra décidé quoi faire
 					bg.dwaps.action();
 
 					// Persistance classe bouton popup

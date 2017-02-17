@@ -20,12 +20,33 @@ var btPopup = null;
 var dwaps = {
 	action: function()
 	{
-		chrome.tabs.query(
-			{},
-			function(tabs)
-			{
-				alert(tabs[0].url);
-			}
-		);
+	    try {
+	    	chrome.tabs.query(
+	    		{
+				    active: true
+				},
+				function(tabs)
+				{
+					var tab = tabs[0];
+
+					// Selon l'état de l'extension
+					// on souhaite réinitialiser la page ou faire disparaître ses textes
+					var idText = isExtensionActive ? "hideText" : "refreshPage";
+
+			        chrome
+			        	.tabs
+			        	.sendMessage(
+			        		tab.id,
+			        		{
+			        			text: idText
+			        		}
+			        	)
+			        ;
+				}
+			);
+	    }
+	    catch ( error ) {
+	        alert( error );
+	    }
 	}
 };
