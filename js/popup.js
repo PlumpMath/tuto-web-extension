@@ -7,27 +7,37 @@
 * Date : 	16/02/2017
 **/
 
-// Booléen d'activation/désactivation du module
-var isActive = false;
-
 document
 	.addEventListener(
 		"DOMContentLoaded",
 		function()
 		{
+			// On récupère le code en background pour accéder à ses variables
+			var bg = chrome.extension.getBackgroundPage();
+
 			// On récupère le bouton de la popup de l'extension
 			var bt = document.querySelector("#btPopupDWAPS");
+
+			// On affecte au bouton de la popup
+			// les paramètres persistés dans bg.btPopup
+			if(bg.btPopup)
+			{
+				bt.className = bg.btPopup.className;
+				bt.innerHTML = bg.btPopup.innerHTML;
+			}
 
 			// Listener
 			bt.addEventListener(
 				"click",
 				function()
 				{
-					isActive = !isActive;
+					// On récupère le booléen depuis le code en background
+					// et on met à jour sa valeur
+					bg.isExtensionActive = !bg.isExtensionActive;
 
 					// Selon l'état du booléen
 					// On modifie le bouton
-					if(isActive)
+					if(bg.isExtensionActive)
 					{
 						bt.className = "active";
 						bt.innerHTML = "ON";
@@ -37,6 +47,9 @@ document
 						bt.className = "inactive";
 						bt.innerHTML = "OFF";
 					}
+
+					// Persistance classe bouton popup
+					bg.btPopup = bt;
 
 					// Fermeture de la popup
 					window.close();
