@@ -14,3 +14,18 @@ var isExtensionActive = false;
 // en vue de son affichage :
 // Si le module est actif, le bouton doit être à ON
 var btPopup = null;
+
+
+// Découverte de chrome.tabs.query...
+var dwaps = {
+	action: function()
+	{
+		chrome.tabs.query(
+			{},
+			function(tabs)
+			{
+				alert(tabs[0].url);
+			}
+		);
+	}
+};

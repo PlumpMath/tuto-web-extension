@@ -48,6 +48,10 @@ document
 						bt.innerHTML = "OFF";
 					}
 
+					// On indique au background
+					// qu'il y a eu un clic sur le bouton
+					bg.dwaps.action();
+
 					// Persistance classe bouton popup
 					bg.btPopup = bt;
 
