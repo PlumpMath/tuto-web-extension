@@ -36,4 +36,4 @@ Pour savoir quel code de leçon vous souhaitez atteindre, reportez-vous au plan 
 
 ---
 
-[® DWAPS Formation - Michael Cornillon] (http://dwaps.fr "DWAPS")
+[® DWAPS Formation - Michael Cornillon](http://dwaps.fr "DWAPS")
